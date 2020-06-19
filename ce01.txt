@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 4521 bytes
+Current configuration : 4579 bytes
 !
-! Last configuration change at 11:28:39 UTC Fri Jun 19 2020
+! Last configuration change at 11:30:40 UTC Fri Jun 19 2020
 !
 version 16.9
 service timestamps debug datetime msec
@@ -138,6 +138,9 @@ cdp run
 !
 interface Loopback0
  ip address 1.1.1.1 255.255.255.255
+!
+interface Loopback2
+ ip address 1.1.1.2 255.255.255.255
 !
 interface TenGigabitEthernet0/0/0
  no ip address
