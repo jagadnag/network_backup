@@ -1,0 +1,224 @@
+Building configuration...
+
+Current configuration : 4463 bytes
+!
+! Last configuration change at 11:01:35 UTC Fri Jun 19 2020
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform hardware throughput level 5000000
+!
+hostname ce01
+!
+boot-start-marker
+boot system bootflash:asr1001x-universalk9.16.09.04.SPA.bin
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name lab.com
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3038877246
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3038877246
+ revocation-check none
+ rsakeypair TP-self-signed-3038877246
+!
+!
+crypto pki certificate chain TP-self-signed-3038877246
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33303338 38373732 3436301E 170D3230 30363139 30353336 
+  30385A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 30333838 
+  37373234 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100F1C7 C966748D AB104EF4 4123CD4E 9A7A6513 1723ADAA 9F625D25 
+  FE9EB6E4 AAB0E981 78D2207F 280EC540 F9D04859 5F14FE1C F5178E49 12733AF5 
+  11869B58 AAEB75DE 4B3F30E8 90A9B696 E4D08582 1771935F 344DABFA CE5A76D8 
+  3304C460 8694D84A A1E1D8D1 C31BC27D 21A41A9B 18F65C48 CD7AC182 3E4F52DC 
+  1A3C74DC 90E46BDA 32167D31 D2300FC7 42A665E0 FF61D2AB CFC9F865 B831E731 
+  A1018A85 3368D362 25140B04 7CD0730A A3F1632D C8CB8363 9735D503 6BAC4A74 
+  3F5BB72A B16C8BFB 8D9288D3 A098648A DDA38A58 A5FE696E 08E4C719 C93ACE83 
+  3C6EC571 217A7373 B8D726B3 411D50B8 41DF4280 E46D449E F9923593 98EFAE4F 
+  167BAA13 5F7D0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 141FEDC4 83C76B64 3E19D2E4 63B921CA C34B4E70 
+  24301D06 03551D0E 04160414 1FEDC483 C76B643E 19D2E463 B921CAC3 4B4E7024 
+  300D0609 2A864886 F70D0101 05050003 82010100 CCFCA3A0 B7E5F99E 72D1368E 
+  5106E7D2 32F53E7C 93C601A7 2B85F3C9 2F919B20 CE74063C 65F544F2 3A57DD30 
+  FB976C17 0E8D87F3 16D267B6 4E0C523F 52070490 BDBF285A 589685C0 34FDC1A3 
+  C1F26760 410457E1 D7D9AE46 B3C9284A E3C0B24A FBB812CA B8848A3B AF0F54D0 
+  89E61B62 1FD0DF5F ED6C49AE D9ACF751 26201267 8BEB602D D450486B D09B45B8 
+  F44DDC04 B06EBE81 DF8E971E FD11DA02 58F9A94B A0A82B7E FDB40960 9A1694F4 
+  EB250F98 2C36FF7D 4316FBF9 A76A7EDC 744147F0 954197D7 2EAF00E3 DD02DA68 
+  FFCE2C3B 19B640D0 51319ACE 683A079A A0CE2E2B CF5A4665 EAECB9C5 8120050A 
+  EA608C88 324F2536 BEF33E97 98809BBA 07271782
+  	quit
+!
+license udi pid ASR1001-X sn JAE194307P8
+license accept end user agreement
+license boot level adventerprise
+no license smart enable
+!
+spanning-tree extend system-id
+diagnostic bootup level minimal
+!
+!
+!
+username cisco privilege 15 password 0 cisco
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+cdp run
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface TenGigabitEthernet0/0/0
+ no ip address
+ shutdown
+!
+interface TenGigabitEthernet0/0/1
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ negotiation auto
+ cdp enable
+!
+interface GigabitEthernet0/0/1
+ no ip address
+ negotiation auto
+ cdp enable
+!
+interface GigabitEthernet0/0/2
+ no ip address
+ negotiation auto
+ cdp enable
+!
+interface GigabitEthernet0/0/3
+ no ip address
+ negotiation auto
+ cdp enable
+!
+interface GigabitEthernet0/0/4
+ no ip address
+ negotiation auto
+ cdp enable
+!
+interface GigabitEthernet0/0/5
+ no ip address
+ negotiation auto
+ cdp enable
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ ip address 10.122.188.78 255.255.255.240
+ negotiation auto
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip tftp source-interface GigabitEthernet0
+ip route vrf Mgmt-intf 0.0.0.0 0.0.0.0 10.122.188.65
+!
+ip ssh version 2
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ logging synchronous
+ login local
+ transport input all
+ transport output all
+line vty 5 15
+ logging synchronous
+ login local
+ transport input all
+ transport output all
+!
+!
+!
+!
+!
+!
+end
